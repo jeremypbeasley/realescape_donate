@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Canlis </title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- <link href="/master.css" rel="stylesheet"> -->
+  <!-- <link href="/giftcard.css" rel="stylesheet"> -->
+  <link rel="apple-touch-icon" sizes="57x57" href="_favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="_favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="_favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="_favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="_favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="_favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="_favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="_favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="_favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="_favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="_favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="_favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="_favicon/favicon-16x16.png">
+  <link rel="manifest" href="_favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="_favicon/ms-icon-144x144.png">
+</head>
+<body>
+  <a href="https://canlis.com/" class="Logo mb10 Caption NoLine">Logo</a>
+  <div class="GlobalNav Unselectable ShowDesktop">
+    <!-- <div class="GlobalNavToggle Caption Unselectable">Menu +</div> -->
+    <ul class="Open">
+      <li class="Caption"><a class="NavLink ResLink" id="link-header-res-desktop">Reservations</a></li>
+      <li class="Caption"><a class="NavLink" href="https://giftcards.canlis.com">Gift Cards</a></li>
+      <li class="Caption">—</li>
+      <li class="Caption"><a class="NavLink" href="https://canlis.com/menu">Menu</a></li>
+      <li class="Caption"><a class="NavLink" href="https://canlis.com/drinks">Wine & Spirits</a></li>
+      <li class="Caption"><a class="NavLink" href="https://canlis.com/events">Private Events</a></li>
+      <li class="Caption"><a class="NavLink" href="https://canlis.com/people">People</a></li>
+      <li class="Caption"><a class="NavLink" href="https://canlis.com/story">Story</a></li>
+    </ul>
+    <ul class="SocialNav">
+      <!-- <li><a href="http://twitter.com/canlis" target="_blank" class="Twitter NoLine">Twitter</a></li> -->
+      <li><a href="http://instagram.com/canlisrestaurant" target="_blank" class="Instagram NoLine"></a></li>
+    </ul>
+  </div>
+  <div class="NavHamburger Caption">
+    <div>
+      <span class="Close">Close</span>
+    </div>
+    <div>
+      <span class="Open">Menu</span>
+    </div>
+  </div>
+  <div class="GlobalNav Unselectable ShowMobile">
+    <div class="GlobalNavInside AlignCenter">
+      <ul class="Open">
+        <li class="Caption"><a class="NavLink ResLink" id="link-header-res-desktop">Reservations</a></li>
+        <li class="Caption"><a class="NavLink" href="https://giftcards.canlis.com">Gift Cards</a></li>
+        <li class="Caption"><a class="NavLink" href="https://canlis.com/menu">Menu</a></li>
+        <li class="Caption"><a class="NavLink" href="https://canlis.com/drinks">Wine & Spirits</a></li>
+        <li class="Caption"><a class="NavLink" href="https://canlis.com/events">Private Events</a></li>
+        <li class="Caption"><a class="NavLink" href="https://canlis.com/people">People</a></li>
+        <li class="Caption"><a class="NavLink" href="https://canlis.com/story">Story</a></li>
+      </ul>
+      <ul class="SocialNav">
+        <!-- <li><a href="http://twitter.com/canlis" target="_blank" class="Twitter NoLine">Twitter</a></li> -->
+        <li><a href="http://instagram.com/canlisrestaurant" target="_blank" class="Instagram NoLine"></a></li>
+      </ul>
+    </div>
+  </div>
+
+
+
+<div class="row">
+  <div class="column col-xs-12 col-md-4 col-md-offset-4 mt10 mb10">
+    <h1 class="Display1 mt10 mb10">
+      Give the gift of Canlis.
+    </h2>
+    <form action="/thanks" method="POST" id="payment-form" name="payment-form">
+      <div class="FormErrorsCont">
+        <div class="FormErrors"></div>
+      </div>
+      <div class="FormItem2 mb4">
+        <p class="mb10">Gift cards are available in any amount; we recommend $400 for a dinner for two. Please allow 2 business days for processing.</p>
+        <label>
+          <span class="Caption">Amount</span>
+          <div class="GiftAmount">
+            <input class="InputGiftAmount" type="tel" name="stripeAmount">
+            <input type="hidden" name="productId" value="prod_A06J6m2sZjfgXq">
+          </div>
+        </label>
+      </div>
+      <div class="FormItem">
+        <label class="Caption">From:</label>
+        <input class="InputText" type="text" name="from_name" autocomplete="off" readonly onfocus="if (this.hasAttribute('readonly')) {this.removeAttribute('readonly');
+        // fix for mobile safari to show virtual keyboard
+        this.blur(); this.focus();  }" />
+      </div>
+      <div class="FormItem">
+        <label class="Caption">To:</label>
+        <input class="InputText" type="text" name="recipient_name" autocomplete="off" readonly onfocus="if (this.hasAttribute('readonly')) {this.removeAttribute('readonly');
+        // fix for mobile safari to show virtual keyboard
+        this.blur(); this.focus();  }" />
+      </div>
+      <div class="FormItem">
+        <label class="Caption">Message (Optional)</label>
+        <input class="InputText" type="text" name="recipient_message" maxlength="120" autocomplete="off">
+      </div>
+      <p class="Display2 mt5" id="ShippingHeadline">Shipping</p>
+      <div class="ShippingPreference">
+        <ul>
+          <!-- <li class="ShippingSelector">
+            <input type="radio" name="shipping_preference" id="ShipToPickup" value="pickup">
+            <label for="ShipToPickup" class="Caption">Pick up at Canlis</label>
+            <div class="check"></div>
+          </li> -->
+          <li class="ShippingSelector">
+            <input type="radio" name="shipping_preference" id="ShipToMe" value="customer">
+            <label for="ShipToMe" class="Caption">Ship to me</label>
+            <div class="check"><div class="inside"></div></div>
+          </li>
+          <li class="ShippingSelector">
+            <input type="radio" name="shipping_preference" id="ShipToRecipient" value="recipient">
+            <label for="ShipToRecipient" class="Caption">Ship to recipient</label>
+            <div class="check"><div class="inside"></div></div>
+          </li>
+        </ul>
+      </div>
+      <div class="ShippingInformation mt0">
+        <p class="mt4">A shipping charge of $4.00 (tax included) will be added to your order.</p>
+        <div class="FormItem">
+          <label class="Caption">Address</label>
+          <input class="InputText" type="text" name="shipping_address_line1" autocomplete="address-line1">
+        </div>
+        <div class="FormItem">
+          <label class="Caption">Address (cont.)</label>
+          <input class="InputText" type="text" name="shipping_address_line2" autocomplete="address-line2">
+        </div>
+        <div class="FormItem">
+          <label class="Caption">City</label>
+          <input class="InputText" type="text" name="shipping_address_city" autocomplete="address-level2">
+        </div>
+        <div class="FormItem">
+          <div class="StateSelector">
+            <label class="Caption StateLabel">State</label>
+            <select name="shipping_address_state" class="Default" autocomplete="address-level1">
+              <option value="">State</option>
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="DC">District Of Columbia</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+            </select>
+          </div>
+        </div>
+        <div class="FormItem">
+          <label class="Caption">Postal Code</label>
+          <input class="InputText" type="tel" name="shipping_address_postal_code" autocomplete="postal-code">
+        </div>
+      </div>
+      <p class="Display2 mt5 ">Payment</p>
+      <div class="FormItem">
+        <label class="Caption">Name on card</label>
+        <input class="InputText" type="text" data-stripe="name" name="customer_name" autocomplete="name">
+      </div>
+      <div class="FormItem">
+        <label class="Caption">Card Number</label>
+        <input class="InputText" type="tel" data-stripe="number" id="cc" maxlength="16" autocomplete="cc-number">
+      </div>
+      <div class="FormItem Expiration Month">
+        <label class="Caption">Exp. (MM)</label>
+        <input class="InputText" type="tel" size="2" data-stripe="exp_month" id="ccm" maxlength="2" autocomplete="cc-exp-month">
+      </div>
+      <div class="FormItem Expiration">
+        <label class="Caption">Exp. (YY)</label>
+        <input class="InputText" type="tel" size="2" data-stripe="exp_year" id="ccy" maxlength="2" autocomplete="cc-exp-year">
+      </div>
+      <div class="FormItem Expiration">
+        <label class="Caption">Security Code</label>
+        <input class="InputText" type="tel" size="4" data-stripe="cvc" id="cvv" maxlength="4" autocomplete="cc-csc">
+      </div>
+      <p class="Display2 mt5 ">Contact</p>
+      <div class="FormItem">
+        <label class="Caption">Your Email</label>
+        <input class="InputText" type="email" name="stripeEmail" autocomplete="email">
+      </div>
+      <div class="FormItem">
+        <label class="Caption">Your Phone Number</label>
+        <input class="InputText" type="tel" name="customer_phone" autocomplete="tel">
+      </div>
+      <p id="YouWillBeCharged" class="mt4"></p>
+      <!-- <input type="submit" class="submit " value="Purchase"> -->
+      <button class="SubmitButton mt8">
+        <div class="CompleteCheck"></div>
+        <div class="LoadingSpinnerCont">
+          <div class="LoadingSpinner"></div>
+        </div>
+        <span class="Purchase">Purchase</span>
+        <span class="Loading">Loading</span>
+        <span class="Complete">Complete</span>
+      </button
+    </form>
+  </div>
+</div>
+
+
+<footer class="GlobalFooter">
+  <div class="FooterLine"></div>
+  <div class="row">
+    <div class="column col-xs-12 col-md-3">
+      <p class="Caption mb0 d-mb2">RESERVATIONS:</p>
+      <p class="Caption">CALL US AT<BR><a class="NoLine" href="tel:+12062833313">(206) 283-3313</a><br>OR ONLINE <a class="ResLink">HERE</a>.</p>
+    </div>
+    <div class="column col-xs-12 col-md-3">
+      <p class="Caption mb0 d-mb2">ADDRESS:</p>
+      <p class="Caption mb0 d-mb5"><a class="NoLine" href="https://www.google.com/maps/dir/''/Canlis+Seattle,+WA+98109/@47.6430677,-122.4168205,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x54901505379f7045:0xd1009d4ff183b6c6!2m2!1d-122.3467808!2d47.643089">2576 Aurora Ave. N<br>
+Seattle, WA <br>98109</a></p>
+    </div>
+    <div class="column col-xs-12 col-md-2">
+      <p class="Caption mb0 d-mb2">HOURS:</p>
+      <p class="Caption">MONDAY - SATURDAY<br>5:30 - 10PM</p>
+    </div>
+    <div class="column col-xs-12 col-md-4">
+      <p class="mb0 d-mb5"><span class="Caption">Attire:  </span>There’s a time and place to look casual. Tonight you’re going big, so dress the part. We are a dressy, fine dining restaurant and we ask that gentlemen wear a suit or sport coat if possible. No casual or athletic attire.</p>
+    </div>
+    <div class="column col-xs-12 col-md-6">
+       <p class="Caption mt3"><a href="https://giftcards.canlis.com" class="NoLine">Gift Cards</a> / <!-- <a href="awards" class="NoLine">Awards</a> / --> <a href="https://canlis.com/careers" class="NoLine">Careers</a> / &copy 2017 Canlis</p>
+    </div>
+    <div class="column col-xs-12 col-md-6">
+      <a href="https://www.relaischateaux.com/" target="_blank" class="RelaisLogo NoLine mt3">
+        <img src="https://canlis.com/assets/_img/relais.svg">
+      </a>
+    </div>
+  </div>
+</footer>
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  <script type="text/javascript" src="jquery.validate.js"></script>
+  <script src="https://widgets.resy.com/embed.js"></script>
+  <script type="text/javascript" src="https://canlis.com/assets/master.js"></script>
+  <script type="text/javascript" src="giftcard.js"></script>
+</body>
+</html>
