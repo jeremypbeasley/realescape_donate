@@ -11,7 +11,9 @@ $( document ).ready(function() {
   $('[name="shipping_address_line1"]').val("171 Lake Washington Blvd E");
   $('[name="shipping_address_line2"]').val("");
   $('[name="shipping_address_city"]').val("Seattle");
-  $('[name="shipping_address_state"]').val("Washington");
+  // $('[name="shipping_address_state"]').filter(function() {
+  //   return $(this).text() == 'Washington';
+  // }).prop('selected', true);
   $('[name="shipping_address_country"]').val("United States");
   $('[name="shipping_address_postal_code"]').val("98112");
   $('[name="stripeEmail"]').val("jeremy@bsley.com");
@@ -46,7 +48,7 @@ $( document ).ready(function() {
 
   // SHIPPING INFO TOGGLE
 
-  $(".ShippingInformation").hide();
+  // $(".ShippingInformation").hide();
 
   $('.ShippingSelector').click(function() {
     if($('#ShipToMe').is(':checked')) {

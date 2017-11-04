@@ -27,210 +27,44 @@ app.get("/", (req, res) =>
 
 // Functions to perform transaction with Stripe
 function buyGiftCard(form, callback) {
-  console.log(form);
-  getSkuList((err, skuList) => {
+  makeCustomer(form, (err, customer) => {
     if (err) {}
-    chooseSku(form, skuList, (err, chosenSku) => {
+    makeCharge(form, customer, (err, charge) => {
       if (err) {}
-      createOrder(form, chosenSku, (err, order) => {
-        if (err) {}
-        applyShipping(form, order, (err, orderTotal) => {
-          if (err) {}
-          payOrder(order, form, (err, order) => {
-            if (err) {}
-            callback(null, order);
-            mailchimpAddSub(order);
-            sendReceipt(order, order);
-          });
-        });
-      });
+      callback(null, charge);
+      // mailchimpAddSub(order);
+      // sendReceipt(order, order);
     });
   });
 }
 
-function getSkuList(callback) {
-  stripe.skus.list({
-    limit: 30
-  }, function(err, skus) {
+
+function makeCustomer(form, callback) {
+  stripe.customers.create({
+    email: form.stripeEmail,
+    source: form.stripeToken
+  }, function(err, customer) {
       if (err) {}
-      callback(null, skus);
+      callback(null, customer);
+      console.log(customer);
     }
   )
 }
 
-function chooseSku(form, skuList, callback) {
-  // make a list of price-points that already exist for the gift card
-  var sortedskus = _.map(skuList.data, "price")
-  // see if the price we're trying to submit already exists
-  if (sortedskus.includes(form.stripeAmount * 100)) {
-    existingSku = _.filter(skuList.data, {
-      // since the form is submitting an integer, we must make it make "cents"
-      'price': form.stripeAmount * 100
-    });
-    // use the existing sku
-    callback(null, existingSku[0].id);
-  } else {
-    // make a new sku
-    stripe.skus.create({
-      product: form.productId,
-      attributes: {
-        'loadedamount': form.stripeAmount
-      },
-      // since the form is submitting an integer, we must make it make "cents"
-      price: form.stripeAmount * 100,
-      currency: 'usd',
-      inventory: {
-        type: 'infinite'
-      }
-    }, function(err, newSku) {
-      if (err) {
-        console.log(err);
-      }
-      // use new sku
-      callback(null, newSku.id);
-    });
-  }
-}
-
-function createCustomer(form, callback) {
-  stripe.customers.create({
-    email: form.stripeEmail,
-    source: form.stripeToken,
-    metadata: {
-      customer_phone: form.customer_phone
-    }
-  }, function(err, customer) {
-    if (err) {
-      console.log(err)
-    }
-    callback(null, customer);
-  })
-}
-
-function createOrder(form, chosenSku, callback) {
-  // fallback for optional message
-  var recipient_message;
-  if (!form.recipient_message) {
-    recipient_message = "No message provided.";
-  } else {
-    recipient_message = form.recipient_message;
-  }
-  // fallback for optional from name
-  var fromname;
-  if (!form.from_name) {
-    fromname = "None provided"
-  } else {
-    fromname = form.from_name;
-  }
-  // fallback for optional second address line
-  var addressline2;
-  if (!form.shipping_address_line2) {
-    addressline2 = "";
-  } else {
-    addressline2 = form.shipping_address_line2;
-  }
-  stripe.orders.create({
-    items: [{
-      type: 'sku',
-      parent: chosenSku
-    }],
+function makeCharge(form, customer, callback) {
+  stripe.charges.create({
+    amount: form.stripeAmount * 100,
     currency: "usd",
-    email: form.stripeEmail,
-    shipping: {
-      name: form.recipient_name,
-      address: {
-        line1: form.shipping_address_line1,
-        line2: addressline2,
-        city: form.shipping_address_city,
-        state: form.shipping_address_state,
-        postal_code: form.shipping_address_postal_code
-      }
-    },
-    // we throw in some information as meta data so it can easily be seen from the Stripe dashboard at https://dashboard.stripe.com/orders without clicking on the customer
-    metadata: {
-      card_id: "Not assigned yet",
-      shipping_preference: form.shipping_preference,
-      customer_name: form.customer_name,
-      customer_phone: form.customer_phone,
-      from: fromname,
-      to: form.recipient_name,
-      recipient_message: recipient_message
+    source: customer,
+    description: "Charge for john@john.com"
+  }, function(err, charge) {
+      if (err) {}
+      callback(null, charge);
+      console.log(charge);
     }
-  }, function(err, order) {
-    if (err) {
-      console.log(err)
-    }
-    callback(null, order);
-  })
+  )
 }
 
-function applyShipping(form, order, callback) {
-  var isFreeShipping;
-  var orderTotal = form.stripeAmount * 100;
-  if (form.shipping_preference == "pickup") {
-    isFreeShipping = true;
-  } else {
-    isFreeShipping = false;
-  }
-  // get the ids for free and standard shipping from the order object
-  if (isFreeShipping) {
-    function getFreeMethodId(method) {
-      return method.amount === 0;
-    }
-    var shippingId = order.shipping_methods.find(getFreeMethodId).id;
-    orderTotal += order.shipping_methods.find(getFreeMethodId).amount;
-  } else {
-    function getNotFreeMethodId(method) {
-      return method.amount === 400;
-    }
-    var shippingId = order.shipping_methods.find(getNotFreeMethodId).id;
-    orderTotal += order.shipping_methods.find(getNotFreeMethodId).amount;
-  }
-  // update the order object with the prefered shipping method
-  stripe.orders.update(order.id, {
-    selected_shipping_method: shippingId
-  }, function(err, order) {
-    if (err) {
-      console.log(err)
-    }
-    callback(null, orderTotal)
-  });
-}
-
-function payOrder(order, form, callback) {
-  stripe.orders.pay(order.id, {
-    source: form.stripeToken
-  }, function(err, order) {
-    if (err) {
-      console.log(err)
-    }
-    callback(null, order)
-  });
-}
-
-// Add to Mailchimp
-
-function mailchimpAddSub(order) {
-  request
-    .post('https://' + process.env.mailchimpDataCenter + '.api.mailchimp.com/3.0/lists/' + process.env.mailchimpListId + '/members')
-    .set('Content-Type', 'application/json;charset=utf-8')
-    .set('Authorization', 'Basic ' + new Buffer('any:' + process.env.mailchimpApiKey ).toString('base64'))
-    .send({
-      'email_address': order.email,
-      'status': 'subscribed',
-      "merge_fields": {
-        "FNAME": order.metadata.customer_name,
-        "LNAME": "",
-      }
-    })
-    .end(function(err, response) {
-      if (response.status < 300 || (response.status === 400 && response.body.title === "Member Exists")) {
-        console.log('Mailchimp: Subscription sucessful.');
-      } else {
-        console.log('Mailchimp: Subscription failed.');
-      }
-    });
-};
 
 // Send a receipt
 
