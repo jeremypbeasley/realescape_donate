@@ -6,7 +6,7 @@ const keySecret = process.env.keySecret;
 const express = require('express')
 const app = express()
 const stripe = require("stripe")(keySecret);
-stripe.setApiVersion('2017-02-14');
+stripe.setApiVersion('2017-08-15');
 const bodyParser = require('body-parser')
 const _ = require("lodash");
 const getJSON = require('get-json');
