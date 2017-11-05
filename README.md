@@ -1,8 +1,4 @@
-### How to run
-
-First, `npm install` then `npm run dev`.
-
-### Environment variables
+### Environment
 
 To run this app locally, you'll need to configure your environment with a few keys located in various files.
 
@@ -18,3 +14,9 @@ keySecret=sk_test_XXXXX
 Don't forget to change back #2 and #3 to the live keys when you deploy, otherwise you'll break the app in production.
 
 Note: In production, this `.env` file is replaced by Heroku's ["Config Vars"](https://devcenter.heroku.com/articles/config-vars) so there's no need to deploy it. It's currently ignored in the `.gitignore` to ensure this.
+
+### Run
+
+First, `npm install` then `npm run dev`.
+
+You'll find the app running at http://localhost:7000/

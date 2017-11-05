@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Canlis </title>
+  <title>REST</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- <link href="/master.css" rel="stylesheet"> -->
-  <!-- <link href="/giftcard.css" rel="stylesheet"> -->
+  <!-- Styles & Scripts -->
+  <link href="master.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="57x57" href="_favicon/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="_favicon/apple-icon-60x60.png">
   <link rel="apple-touch-icon" sizes="72x72" href="_favicon/apple-icon-72x72.png">
@@ -24,7 +26,6 @@
 </head>
 <body>
 
-
 <div class="row">
   <div class="column col-xs-12 col-md-4 col-md-offset-4 mt10 mb10">
     <form action="/thanks" method="POST" id="payment-form" name="payment-form">
@@ -33,7 +34,7 @@
       </div>
       <div class="FormItem2 mb4">
         <label>
-          <span class="Caption">Amount</span>
+          <span class="Caption">Donation Amount</span>
           <div class="GiftAmount">
             <input class="InputGiftAmount" type="tel" name="stripeAmount">
             <input type="hidden" name="productId" value="prod_A06J6m2sZjfgXq">
@@ -41,122 +42,7 @@
         </label>
       </div>
       <div class="FormItem">
-        <label class="Caption">From:</label>
-        <input class="InputText" type="text" name="from_name" autocomplete="off" readonly onfocus="if (this.hasAttribute('readonly')) {this.removeAttribute('readonly');
-        // fix for mobile safari to show virtual keyboard
-        this.blur(); this.focus();  }" />
-      </div>
-      <div class="FormItem">
-        <label class="Caption">To:</label>
-        <input class="InputText" type="text" name="recipient_name" autocomplete="off" readonly onfocus="if (this.hasAttribute('readonly')) {this.removeAttribute('readonly');
-        // fix for mobile safari to show virtual keyboard
-        this.blur(); this.focus();  }" />
-      </div>
-      <div class="FormItem">
-        <label class="Caption">Message (Optional)</label>
-        <input class="InputText" type="text" name="recipient_message" maxlength="120" autocomplete="off">
-      </div>
-      <p class="Display2 mt5" id="ShippingHeadline">Shipping</p>
-      <div class="ShippingPreference">
-        <ul>
-          <!-- <li class="ShippingSelector">
-            <input type="radio" name="shipping_preference" id="ShipToPickup" value="pickup">
-            <label for="ShipToPickup" class="Caption">Pick up at Canlis</label>
-            <div class="check"></div>
-          </li> -->
-          <li class="ShippingSelector">
-            <input type="radio" name="shipping_preference" id="ShipToMe" value="customer" checked>
-            <label for="ShipToMe" class="Caption">Ship to me</label>
-            <div class="check"><div class="inside"></div></div>
-          </li>
-          <li class="ShippingSelector">
-            <input type="radio" name="shipping_preference" id="ShipToRecipient" value="recipient">
-            <label for="ShipToRecipient" class="Caption">Ship to recipient</label>
-            <div class="check"><div class="inside"></div></div>
-          </li>
-        </ul>
-      </div>
-      <div class="ShippingInformation mt0">
-        <p class="mt4">A shipping charge of $4.00 (tax included) will be added to your order.</p>
-        <div class="FormItem">
-          <label class="Caption">Address</label>
-          <input class="InputText" type="text" name="shipping_address_line1" autocomplete="address-line1">
-        </div>
-        <div class="FormItem">
-          <label class="Caption">Address (cont.)</label>
-          <input class="InputText" type="text" name="shipping_address_line2" autocomplete="address-line2">
-        </div>
-        <div class="FormItem">
-          <label class="Caption">City</label>
-          <input class="InputText" type="text" name="shipping_address_city" autocomplete="address-level2">
-        </div>
-        <div class="FormItem">
-          <div class="StateSelector">
-            <label class="Caption StateLabel">State</label>
-            <select name="shipping_address_state" class="Default" autocomplete="address-level1">
-              <option value="">State</option>
-              <option value="AL">Alabama</option>
-              <option value="AK">Alaska</option>
-              <option value="AZ">Arizona</option>
-              <option value="AR">Arkansas</option>
-              <option value="CA">California</option>
-              <option value="CO">Colorado</option>
-              <option value="CT">Connecticut</option>
-              <option value="DE">Delaware</option>
-              <option value="DC" selected>District Of Columbia</option>
-              <option value="FL">Florida</option>
-              <option value="GA">Georgia</option>
-              <option value="HI">Hawaii</option>
-              <option value="ID">Idaho</option>
-              <option value="IL">Illinois</option>
-              <option value="IN">Indiana</option>
-              <option value="IA">Iowa</option>
-              <option value="KS">Kansas</option>
-              <option value="KY">Kentucky</option>
-              <option value="LA">Louisiana</option>
-              <option value="ME">Maine</option>
-              <option value="MD">Maryland</option>
-              <option value="MA">Massachusetts</option>
-              <option value="MI">Michigan</option>
-              <option value="MN">Minnesota</option>
-              <option value="MS">Mississippi</option>
-              <option value="MO">Missouri</option>
-              <option value="MT">Montana</option>
-              <option value="NE">Nebraska</option>
-              <option value="NV">Nevada</option>
-              <option value="NH">New Hampshire</option>
-              <option value="NJ">New Jersey</option>
-              <option value="NM">New Mexico</option>
-              <option value="NY">New York</option>
-              <option value="NC">North Carolina</option>
-              <option value="ND">North Dakota</option>
-              <option value="OH">Ohio</option>
-              <option value="OK">Oklahoma</option>
-              <option value="OR">Oregon</option>
-              <option value="PA">Pennsylvania</option>
-              <option value="RI">Rhode Island</option>
-              <option value="SC">South Carolina</option>
-              <option value="SD">South Dakota</option>
-              <option value="TN">Tennessee</option>
-              <option value="TX">Texas</option>
-              <option value="UT">Utah</option>
-              <option value="VT">Vermont</option>
-              <option value="VA">Virginia</option>
-              <option value="WA">Washington</option>
-              <option value="WV">West Virginia</option>
-              <option value="WI">Wisconsin</option>
-              <option value="WY">Wyoming</option>
-            </select>
-          </div>
-        </div>
-        <div class="FormItem">
-          <label class="Caption">Postal Code</label>
-          <input class="InputText" type="tel" name="shipping_address_postal_code" autocomplete="postal-code">
-        </div>
-      </div>
-      <p class="Display2 mt5 ">Payment</p>
-      <div class="FormItem">
-        <label class="Caption">Name on card</label>
+        <label class="Caption">Name</label>
         <input class="InputText" type="text" data-stripe="name" name="customer_name" autocomplete="name">
       </div>
       <div class="FormItem">
@@ -175,18 +61,10 @@
         <label class="Caption">Security Code</label>
         <input class="InputText" type="tel" size="4" data-stripe="cvc" id="cvv" maxlength="4" autocomplete="cc-csc">
       </div>
-      <p class="Display2 mt5 ">Contact</p>
       <div class="FormItem">
-        <label class="Caption">Your Email</label>
+        <label class="Caption">Email</label>
         <input class="InputText" type="email" name="stripeEmail" autocomplete="email">
       </div>
-      <div class="FormItem">
-        <label class="Caption">Your Phone Number</label>
-        <input class="InputText" type="tel" name="customer_phone" autocomplete="tel">
-      </div>
-      <p id="YouWillBeCharged" class="mt4"></p>
-      <!-- <input type="submit" class="submit " value="Purchase"> -->
-      <br><br><br><br>
       <button class="SubmitButton mt8">
         <div class="CompleteCheck"></div>
         <div class="LoadingSpinnerCont">
@@ -200,11 +78,10 @@
   </div>
 </div>
 
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-  <script type="text/javascript" src="jquery.validate.js"></script>
-  <script src="https://widgets.resy.com/embed.js"></script>
-  <script type="text/javascript" src="https://canlis.com/assets/master.js"></script>
-  <script type="text/javascript" src="giftcard.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript" src="jquery.validate.js"></script>
+<script type="text/javascript" src="giftcard.js"></script>
+
 </body>
 </html>

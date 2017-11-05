@@ -50,7 +50,7 @@ function createCustomer(form, callback) {
 
 function createCharge(customer, form, callback) {
   stripe.charges.create({
-    amount: form.stripeAmount,
+    amount: form.stripeAmount * 100,
     currency: "usd",
     customer: customer.id,
   }, function(err, charge) {
@@ -65,7 +65,7 @@ app.post('/thanks', function (req, res) {
   buyGiftCard(req.body, (err, done) => {
     if (err) {}
     // console.log(done);
-    // res.render("thanks.ejs");
+    res.render("thanks.ejs");
   });
 })
 
