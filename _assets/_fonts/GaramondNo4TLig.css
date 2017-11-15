@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'GaramondNo4TLig';
+    src: url('fonts/GaramondNo4TLig.eot');
+    src: url('fonts/GaramondNo4TLig.eot') format('embedded-opentype'),
+         url('fonts/GaramondNo4TLig.woff2') format('woff2'),
+         url('fonts/GaramondNo4TLig.woff') format('woff'),
+         url('fonts/GaramondNo4TLig.ttf') format('truetype'),
+         url('fonts/GaramondNo4TLig.svg#GaramondNo4TLig') format('svg');
+}

@@ -1,0 +1,289 @@
+html
+    min-height 100%
+
+*
+    -webkit-tap-highlight-color rgba(0, 0, 0, 0)
+    -webkit-font-smoothing antialiased
+    font-smoothing antialiased
+    box-sizing border-box
+
+body
+    height 100%
+    overflow-y auto
+    overflow-x hidden
+    margin 0
+
+body.state-menu-open
+    overflow hidden
+    
+img
+    max-width 100%
+
+.hidden
+	display none
+	opacity 0
+
+ .linkedin
+     cursor pointer
+
+.line
+    width 8rem
+    height 1px
+    background black
+    margin-bottom 10vw
+    @media laptop
+        height 1px
+        margin-bottom 4.5vw
+
+
+.home
+    .row.header h1
+        @media laptop
+            width 90%
+    .heading h1
+        width 105%
+    .heading
+        margin-bottom 10vw
+
+.teamMember
+    .portrait
+        width 100%
+        padding-bottom 75%
+        height 0px
+        display block
+        margin-bottom 3rem
+        background-size 100%
+        background-position bottom center
+
+
+.aValue
+    @media laptop
+        margin-bottom 5vw
+
+
+// home
+
+.OurGoal
+    margin-top 55vw
+    @media tablet
+        margin-top 0vw
+        min-height 48vw
+    h2
+        border-top 1px solid black
+        padding-top 3rem
+        @media tablet
+            padding-top 6rem
+            border-top 1px solid black
+
+
+// BLOG
+
+// .BlogRow
+//     border-bottom 1px solid black
+
+.BlogContainer
+    @media tablet
+        padding-top 5vw
+    .BreakLine
+        width 100%
+        margin-bottom 10vw
+        margin-top 0vw
+        @media tablet
+            margin-bottom 5vw
+            margin-top -2vw
+    img
+        width 100vw
+        margin 2em 0 2em -11vw
+        @media laptop
+            width 50vw
+            margin 2em 0 2em -7.5vw
+
+.BlogIndexItem
+    margin-bottom 5vw
+    padding-right 0px
+    padding-left 0px
+    // @media tablet
+    //     margin-bottom 0px
+
+.BlogBack
+    margin-bottom 2rem
+
+.BlogAuthorImage
+    float left
+    margin-top 14px
+    margin-right 1rem
+    height 2rem
+    width 2rem
+    border-radius 1000px
+    background-size cover
+    background-color brand-red-color
+
+
+        // @media laptop
+        //     height 2rem
+        //     width 2rem
+
+// .BlogAuthorInfo
+//     .BlogAuthorImage
+//         width 25%
+//         float left
+//         @media tablet
+//             width 15%
+//         img
+//             width 100%
+//             border-radius 1000px
+//         &.large
+//             width 15%
+//     .details
+//         width 80%
+//         float right
+
+
+.BlogMeta
+    margin-top -1rem
+    margin-bottom 1rem
+    width 100%
+    display block
+    overflow visible
+    @media tablet
+        margin-bottom 2.5rem
+    p
+        float left
+        padding 0 0
+        opacity .4
+        margin-top .8rem
+        line-height 125%
+        @media tablet
+            margin-top 1.3rem
+
+.post
+    p
+        a
+            border-bottom 1px solid black
+            transition all 200ms ease
+            &:hover
+                border-color #ccc
+                &.cta
+                    border-color black
+
+
+
+.BlogLine
+    margin-bottom 0rem
+    margin-top 4rem
+    height .22rem
+    width 100%
+    height 1px
+    background black
+    @media laptop
+        margin-bottom -2rem
+        margin-top 6rem
+
+.fb-share-button
+    margin-left 20px
+    span
+        @media tablet
+            top -4px
+
+
+//DONATIONCTA
+
+.DonationCTA
+    background-color black
+    background-image url(/_img/blog_donatebg_desktop.jpg)
+    background-repeat no-repeat
+    //color white
+    background-size cover
+    background-position bottom right
+    z-index 999
+    position relative
+    margin-top -18.5vw
+    margin-bottom 20vw
+    padding-top 10vw
+    color white
+    .row
+        padding 9vw
+    p 
+        text-align left
+    @media tablet
+        padding-top 0px
+        margin-bottom 0px
+        margin-top 4.5vw
+        background-position bottom center
+
+.social
+    display none
+    @media laptop
+        display block
+
+//EVENTS
+
+.EventsItem, .JobsItem, .NeedsItem
+    &:last-of-type
+        padding-bottom 0px
+        .BreakLine
+            display none
+
+.EventsItem
+    p
+        text-align left
+
+.BreakLine
+    height: 1px;
+    background-color: black;
+    margin: 0 auto;
+    margin-top: 5vw;
+    margin-bottom: -4vw;
+    width: 95%;
+
+.events
+    .EventsThumbnail
+        opacity 0
+        width 100%
+        height 0px
+        padding-bottom 100%
+        background-color #f2f2f2
+        background-size cover
+        background-position center center
+        transition background-blend-mode 200ms ease-out
+    .post
+        h2
+            margin-top -.33em
+
+//NEEDS
+
+.NeedsItem
+    margin-bottom 11vw
+    @media laptop
+        margin-bottom 0px
+
+.NeedsContents
+    margin-top -22vw
+    @media laptop
+        margin-top 0px
+
+//SERVICES
+
+.RotatedHeadline
+    transform: rotate(-90deg);
+    transform-origin: 0 0;
+    margin-left: -0.3em;
+    margin-top: 2em;
+
+.linked
+    transition color 100ms ease-out
+    cursor pointer
+    // a, h2, h3, h4, h1, .small
+    //     transition color 100ms ease-out
+    //     transition opacity 100ms ease-out
+    // &:hover
+    //     color brand-red-color
+    //     a, h2, h3, h4, h1, .small
+    //         color brand-red-color
+    //         opacity 1
+    //         border-color brand-red-color
+    //     .EventsThumbnail, .BlogAuthorImage
+    //         background-color brand-red-color
+    //         background-image: linear-gradient(0deg, red, red)
+    //         background-blend-mode: screen, luminosity;
+    //
