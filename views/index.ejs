@@ -1,87 +1,60 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>REST</title>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Styles & Scripts -->
-  <link href="master.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="57x57" href="_favicon/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="_favicon/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="_favicon/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="_favicon/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="_favicon/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="_favicon/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="_favicon/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="_favicon/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="_favicon/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="_favicon/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="_favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="_favicon/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="_favicon/favicon-16x16.png">
-  <link rel="manifest" href="_favicon/manifest.json">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="_favicon/ms-icon-144x144.png">
-</head>
-<body>
+<% include header.ejs %>
 
 <div class="row">
-  <div class="column col-xs-12 col-md-4 col-md-offset-4 mt10 mb10">
+  <div class="column col-xs-12 col-md-5">
     <form action="/thanks" method="POST" id="payment-form" name="payment-form">
       <div class="FormErrorsCont">
         <div class="FormErrors"></div>
       </div>
-      <div class="FormItem2 mb4">
-        <label>
-          <span class="Caption">Donation Amount</span>
-          <div class="GiftAmount">
-            <input class="InputGiftAmount" type="tel" name="stripeAmount">
-            <input type="hidden" name="productId" value="prod_A06J6m2sZjfgXq">
-          </div>
-        </label>
-      </div>
       <div class="FormItem">
-        <label class="Caption">Name</label>
+        <div class="GiftAmount">
+          <label class="InputLabel">Amount</label>
+          <input class="InputGiftAmount" type="tel" name="stripeAmount">
+          <input type="hidden" name="productId" value="prod_A06J6m2sZjfgXq">
+        </div>
+      </div>
+      <div class="FormItem mb2 mt3">
+        <label class="InputLabel">Name</label>
         <input class="InputText" type="text" data-stripe="name" name="customer_name" autocomplete="name">
       </div>
-      <div class="FormItem">
-        <label class="Caption">Card Number</label>
-        <input class="InputText" type="tel" data-stripe="number" id="cc" maxlength="16" autocomplete="cc-number">
-      </div>
-      <div class="FormItem Expiration Month">
-        <label class="Caption">Exp. (MM)</label>
-        <input class="InputText" type="tel" size="2" data-stripe="exp_month" id="ccm" maxlength="2" autocomplete="cc-exp-month">
-      </div>
-      <div class="FormItem Expiration">
-        <label class="Caption">Exp. (YY)</label>
-        <input class="InputText" type="tel" size="2" data-stripe="exp_year" id="ccy" maxlength="2" autocomplete="cc-exp-year">
-      </div>
-      <div class="FormItem Expiration">
-        <label class="Caption">Security Code</label>
-        <input class="InputText" type="tel" size="4" data-stripe="cvc" id="cvv" maxlength="4" autocomplete="cc-csc">
-      </div>
-      <div class="FormItem">
-        <label class="Caption">Email</label>
+      <div class="FormItem mb2 mt3">
+        <label class="InputLabel">Email</label>
         <input class="InputText" type="email" name="stripeEmail" autocomplete="email">
       </div>
-      <button class="SubmitButton mt8">
+      <div class="FormItem mb2 mt3">
+        <label class="InputLabel">Card Number</label>
+        <input class="InputText" type="tel" data-stripe="number" id="cc" name="ccdigits" maxlength="16" autocomplete="cc-number">
+      </div>
+      <div class="FormItem mb2 mt3 Expiration Month">
+        <label class="InputLabel">Exp. (MM)</label>
+        <input class="InputText" type="tel" size="2" data-stripe="exp_month" name="ccexpm" id="ccm" maxlength="2" autocomplete="cc-exp-month">
+      </div>
+      <div class="FormItem mb2 mt3 Expiration">
+        <label class="InputLabel">Exp. (YY)</label>
+        <input class="InputText" type="tel" size="2" data-stripe="exp_year" name="ccexpy" id="ccy" maxlength="2" autocomplete="cc-exp-year">
+      </div>
+      <div class="FormItem mb2 mt3 Expiration">
+        <label class="InputLabel">Security Code</label>
+        <input class="InputText" type="tel" size="4" data-stripe="cvc" id="cvv" name="ccsec" maxlength="4" autocomplete="cc-csc">
+      </div>
+      <button class="SubmitButton mt4">
         <div class="CompleteCheck"></div>
         <div class="LoadingSpinnerCont">
           <div class="LoadingSpinner"></div>
         </div>
-        <span class="Purchase">Purchase</span>
+        <span class="Purchase">Submit</span>
         <span class="Loading">Loading</span>
         <span class="Complete">Complete</span>
       </button
     </form>
+    <p class="mt4">
+      Proteccted with <a href="https://en.wikipedia.org/wiki/SSL" target="_blank">SSL</a>
+      and <a href="https://stripe.com/" target="_blank">Stripe</a>.
+    </p>
   </div>
 </div>
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script type="text/javascript" src="jquery.validate.js"></script>
-<script type="text/javascript" src="giftcard.js"></script>
+<script type="text/javascript" src="master.js"></script>
 
-</body>
-</html>
+<% include footer.ejs %>

@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 
-  // TESTING ONLY: FORM AUTO FILL
+  // Auto-population (Only used for testing)
 
   $('[name="customer_name"]').val("John Smith");
   $('[name="from_name"]').val("John Smith");
@@ -11,9 +11,6 @@ $( document ).ready(function() {
   $('[name="shipping_address_line1"]').val("171 Lake Washington Blvd E");
   $('[name="shipping_address_line2"]').val("");
   $('[name="shipping_address_city"]').val("Seattle");
-  // $('[name="shipping_address_state"]').filter(function() {
-  //   return $(this).text() == 'Washington';
-  // }).prop('selected', true);
   $('[name="shipping_address_country"]').val("United States");
   $('[name="shipping_address_postal_code"]').val("98112");
   $('[name="stripeEmail"]').val("jeremy@bsley.com");
@@ -22,53 +19,9 @@ $( document ).ready(function() {
   $('#ccy').val("19");
   $('#cvv').val("123");
   $('.FormItem').addClass("active");
-  $('.InputGiftAmount').val("123");
+  $('.InputGiftAmount').val("100");
 
-  // Populates "You will be charged.." dialogue before submit button
-
-  var shippingCost = 0;
-  var enteredAmount;
-
-  function showTotalCharge() {
-    if (enteredAmount) {
-      totalCharge = enteredAmount + shippingCost;
-      $("#YouWillBeCharged").show().text("You will be charged a total of $" + totalCharge + ".00");
-    }
-  }
-
-  $("#YouWillBeCharged").hide()
-  $(".GiftAmount input").keyup(function() {
-      enteredAmount = Number($(this).val());
-      if (enteredAmount) {
-        showTotalCharge();
-      } else {
-        $("#YouWillBeCharged").hide().text("");
-      };
-  }).keyup();
-
-  // SHIPPING INFO TOGGLE
-
-  // $(".ShippingInformation").hide();
-
-  $('.ShippingSelector').click(function() {
-    if($('#ShipToMe').is(':checked')) {
-      $(".ShippingInformation").show();
-      shippingCost = 4;
-      showTotalCharge();
-    }
-    if ($('#ShipToRecipient').is(':checked')) {
-      $(".ShippingInformation").show();
-      shippingCost = 4;
-      showTotalCharge();
-    }
-    if ($('#ShipToPickup').is(':checked')) {
-      $(".ShippingInformation").hide();
-      shippingCost = 0;
-      showTotalCharge();
-    }
-  });
-
-  // CLEVER ANIMATED INPUT FIELDS
+  // Animated input fields
 
   $('input.InputText').each(function() {
     $(this).on('focus', function() {
@@ -84,7 +37,7 @@ $( document ).ready(function() {
     });
   });
 
-  // CLEVER ANIMATED SELECT FIELDS
+  // Animated select fields
 
   $('.StateLabel').click(function() {
     $('.StateSelector select').focus();
@@ -100,19 +53,8 @@ $( document ).ready(function() {
 
 });
 
-// ERASE ADDRESS AUTOCOMPLETE IF "PICK UP AT CANLIS" IS SELECTED
 
-$('#ShipToPickup').click(function() {
-  $('[name="shipping_address_line1"]').val("");
-  $('[name="shipping_address_line2"]').val("");
-  $('[name="shipping_address_city"]').val("");
-  $('[name="shipping_address_state"]').val("");
-  $('[name="shipping_address_country"]').val("");
-  $('[name="shipping_address_postal_code"]').val("");
-});
-
-
-// FORM VALIDATION & ERROR MESSAGES
+// Form validation & error messages
 
 Stripe.setPublishableKey('pk_test_Gbu2akKhNgGjbKi4LPxOOWqc');
 
@@ -134,47 +76,58 @@ $("#payment-form").submit(function(event) {
         required: true,
         digits: true
       },
-      recipient_name: {
+      ccdigits: {
         required: true,
+        digits: true
       },
-      shipping_preference: {
+      ccexpm: {
         required: true,
+        digits: true
+      },
+      ccexpy: {
+        required: true,
+        digits: true
+      },
+      ccsec: {
+        required: true,
+        digits: true
       },
       shipping_address_line1: {
-        required: ["#ShipToMe:checked", "#ShipToRecipient:checked"]
+        required: true
       },
       shipping_address_city: {
-        required: ["#ShipToMe:checked", "#ShipToRecipient:checked"]
+        required: true
       },
       shipping_address_state: {
-        required: ["#ShipToMe:checked", "#ShipToRecipient:checked"],
-        // equals: ["AL", "AK", "AZ"],
+        required: true
       },
       shipping_address_postal_code: {
-        required: ["#ShipToMe:checked", "#ShipToRecipient:checked"]
+        required: true
       },
     },
     messages: {
       stripeAmount: {
-        required: "Please tell us how much you you'd like on your gift card.",
+        required: "Please tell us how much you'd like to give",
         digits: "Please enter a valid whole number."
       },
       customer_name: {
-        required: "We'll need your name, please."
+        required: "We'll need your name for your donation."
       },
       stripeEmail: {
-        required: "We'll need your email address in case we have to contact you about your card.",
+        required: "We'll need your email address in case we have to contact you about your donation.",
         email: "Your email address must be in the format of name@domain.com"
       },
-      customer_phone: {
-        required: "We'll need your phone in case we have to contact you.",
-        digits: "Please enter your phone number with only numbers and no spaces."
+      ccdigits: {
+        required: "Please enter a valid card number"
       },
-      recipient_name: {
-        required: "Please tell us who this gift card is for.",
+      ccexpm: {
+        required: "Please enter a valid two digit month"
       },
-      shipping_preference: {
-        required: "Please let us know how you'd like your card delivered.",
+      ccexpy: {
+        required: "Please enter a valid two digit year"
+      },
+      ccsec: {
+        required: "Please enter a valid code, likely on the back of your card"
       },
       shipping_address_line1: {
         required: "Please enter a valid address."
@@ -184,7 +137,6 @@ $("#payment-form").submit(function(event) {
       },
       shipping_address_state: {
         required: "Please select a state.",
-        // equals: "Please select a valid state."
       },
       shipping_address_postal_code: {
         required: "Please enter a valid ZIP code."
@@ -229,7 +181,7 @@ function renderErrors(errorString) {
   }, 400);
 }
 
-// SENDING FORM
+// Form submission
 
 function stripeResponseHandler(status, response) {
   var $form = $('#payment-form');
