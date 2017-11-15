@@ -17,6 +17,6 @@ Note: In production, this `.env` file is replaced by Heroku's ["Config Vars"](ht
 
 ### Run
 
-First, `npm install` then `npm run dev`.
+First, `npm install` then `npm run start`.
 
 You'll find the app running at http://localhost:7000/
