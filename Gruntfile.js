@@ -17,8 +17,13 @@ module.exports = function(grunt) {
     concat: {
       dist: {
         src: [
+<<<<<<< HEAD
           // 'node_modules/jquery/dist/jquery.min.js',
           'node_modules/jquery-validation/dist/jquery-validate.js',
+=======
+          'node_modules/jquery/dist/jquery.min.js',
+          'node_modules/jquery-validation/dist/jquery.validate.js',
+>>>>>>> ef1d00574afa08db6642adf43b10e23ad3bcaa2f
           '_resources/_scripts/main.js'
         ],
         dest: 'public/master.js',
