@@ -1,62 +1,40 @@
 hr {
   display: none;
 }
+
+input {
+  color: color-text;
+  font-family: typeface-primary
+}
+
 input:focus {
-  border-color: black;
+  border-color: color-text;
+  color: color-text
   outline: none;
 }
+
 :-webkit-autofill,
 :-webkit-autofill:hover,
 :-webkit-autofill:focus {
   border: 0;
-  -webkit-text-fill-color: black;
+  -webkit-text-fill-color: color-text;
   -webkit-box-shadow: 0 0 0px 1000px transparent inset;
-  transition: background-color 5000s ease-in-out 0s;
-  background: transparent !important;
-  background-color: transparent !important;
+  transition: background-color 1000s ease-in-out 0s !important;
+  background: color-background !important;
+  background-color: color-background !important;
 }
-input.InputGiftAmount {
-  width: 100%;
-  display: block;
-  border: 0;
-  border-bottom: 1px solid #ccc;
-  border-radius: 0;
-  background-color: transparent;
-  padding: 0px 0 20px 25px;
-  font-size: 45px;
-  font-family:'GTSectraDisplayLight', Times, Georgia, serif;
-}
-@media (min-width: 1024px) {
-  input.InputGiftAmount {
-    padding-left: 45px;
-    font-size: 72px;
-  }
-}
-.GiftAmount {
-  position: relative;
-}
-.GiftAmount:before {
-  content: "$";
-  position: absolute;
-  top: .2em;
-  left: -3px;
-  font-size: 45px;
-  line-height: 125%;
-  font-family: "GTSectraDisplayLight", Times, Georgia, serif;
-}
-@media (min-width: 62em) {
-  .GiftAmount:before {
-    font-size: 72px;
-  }
-}
+
+
+
+
 input.InputText {
   width: 100%;
+  font-size: 1rem;
   display: block;
   border: 0;
   border-bottom: 1px solid #ccc;
   border-radius: 0;
   padding: 15px 0 5px 0;
-  font-family: "GTSectraBook", Times, Georgia, serif;
   background: transparent;
   transition: all 200ms ease-out;
   outline: none;
@@ -64,26 +42,27 @@ input.InputText {
   z-index: 10;
   position: relative;
 }
+
 .FormItem {
   display: inline-block;
   position: relative;
-  margin: 0;
-  /*height: 45px;*/
-  margin-bottom: 15px;
   width: 100%;
 }
-.FormItem label.Caption {
+
+.FormItem label.InputLabel {
   position: absolute;
-  top: 25px;
+  top: 15px;
   left: 0px;
-  color:  black;
+  font-family: typeface-secondary;
+  color:  color-text;
   transition: .1s all linear;
   cursor: text;
-  text-transform: uppercase;
   z-index: 10;
 }
+
 label.error {
   position: relative;
+  font-family: typeface-secondary;
   color: #ED5654;
   top: 10px;
   line-height: 120%;
@@ -94,10 +73,9 @@ label.error {
   padding-left: 0px;
 }
 
-.FormItem.active label.Caption {
-  top: 0px;
-  font-size: 11px;
-  opacity: .5;
+.FormItem.active label {
+  top: -5px;
+  opacity: .7;
 }
 .FormItem.Expiration {
   width: calc(50% - 10px);
@@ -105,82 +83,16 @@ label.error {
 .FormItem.Expiration.Month {
   margin-right: 15px;
 }
-.ShippingPreference {
-  display: block;
-  overflow: auto;
-  margin-top: -10px;
-}
-.ShippingPreference ul{
-  list-style: none;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-.ShippingPreference ul li{
-  color: black;
-  display: block;
-  position: relative;
-  float: left;
-  width: 100%;
-  height: 70px;
-/*  border-bottom: 1px solid #ccc;
-*/  margin-bottom: 0;
-}
-.ShippingPreference ul li input[type=radio]{
-  position: absolute;
-  visibility: hidden;
-}
-.ShippingPreference ul li label{
-  display: block;
-  position: relative;
-  font-weight: 300;
-  padding: 30px 10px 10px 40px;
-  height: 70px;
-  z-index: 9;
-  cursor: pointer;
-  -webkit-transition: all 200ms linear;
-}
-.ShippingPreference ul li:hover label{
-  color: black;
-}
-.ShippingPreference ul li .check{
-  display: block;
-  position: absolute;
-  border: 1px solid #ccc;
-  border-radius: 100%;
-  height: 25px;
-  width: 25px;
-  top: 25px;
-  left: 0px;
-  z-index: 5;
-  transition: border 200ms linear;
-  -webkit-transition: border 300ms linear;
-}
-.ShippingPreference ul li:hover .check {
-  border: 10px solid black;
-}
-/*.ShippingPreference ul li .check::before {
-  display: block;
-  position: absolute;
-  content: '';
-  border-radius: 100%;
-  height: 60%;
-  width: 60%;
-  top: 21%;
-  left: 21.5%;
-  margin: auto;
-  transition: background 200ms linear;
-  -webkit-transition: background 200ms linear;
-}*/
+
+
 input[type=radio]:checked ~ .check {
-  border: 10px solid black;
+  border: 10px solid color-text;
 }
 input[type=radio]:checked ~ .check::before{
-  background: black;
+  background: color-text;
 }
 input[type=radio]:checked ~ label{
-  color: black;
+  color: color-text;
 }
 .FormItem .StateLabel {
   top: 10;
@@ -224,6 +136,52 @@ input[type=radio]:checked ~ label{
 .StateSelector label.error {
   top: 30px;
 }
+
+// Form
+
+.GiftAmount {
+  position: relative;
+}
+
+.FormItem .GiftAmount label.InputLabel {
+  top: -30px;
+}
+
+.GiftAmount:before {
+  content: "$";
+  position: absolute;
+  top: 0;
+  left: -3px;
+  font-size: 45px;
+  line-height: 125%;
+}
+
+@media (min-width: 62em) {
+  .GiftAmount:before {
+    font-size: 72px;
+  }
+}
+
+.InputGiftAmount, .FormItem.active .InputGiftAmount {
+  width: 100%;
+  display: block;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0;
+  background-color: transparent;
+  padding: 0 0 0 25px;
+  font-size: 45px;
+}
+
+@media (min-width: 1024px) {
+  .InputGiftAmount, .FormItem.active .InputGiftAmount {
+    padding-left: 45px;
+    font-size: 72px;
+  }
+}
+
+// Errors
+
 .FormErrorsCont {
   height: 0px;
   transition: all 200ms ease-out;
@@ -247,11 +205,17 @@ input[type=radio]:checked ~ label{
   transform: translateY(0px);
   opacity: 1;
 }
+
+
+
+// Submit button
+
 .SubmitButton {
-  background: black;
+  font-family: typeface-secondary
+  background: color-text;
   padding: 20px 50px;
   border: none;
-  color: white;
+  color: color-background;
   display: block;
   text-align: center;
   border-radius: 1000px;
@@ -259,7 +223,6 @@ input[type=radio]:checked ~ label{
   box-shadow: 5px 5px 0px 0px #000;*/
   position: relative;
   outline: none;
-  font-family: "GTSectraBook", Times, Georgia, serif;
   font-size: 20px;
   transition: all 200ms ease-out;
   transform: scale(1);
@@ -359,8 +322,6 @@ input[type=radio]:checked ~ label{
   border-radius: 50%;
   display: inline-block;
 }
-
-
 @keyframes rotate-forever {
   0%    { transform: rotate(0deg) scale(1)}
   100%  { transform: rotate(360deg) scale(1) }
