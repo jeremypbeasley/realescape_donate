@@ -23,19 +23,19 @@
       </div>
       <div class="FormItem mb2 mt3">
         <label class="InputLabel">Card Number</label>
-        <input class="InputText" type="tel" data-stripe="number" id="cc" maxlength="16" autocomplete="cc-number">
+        <input class="InputText" type="tel" data-stripe="number" id="cc" name="ccdigits" maxlength="16" autocomplete="cc-number">
       </div>
       <div class="FormItem mb2 mt3 Expiration Month">
         <label class="InputLabel">Exp. (MM)</label>
-        <input class="InputText" type="tel" size="2" data-stripe="exp_month" id="ccm" maxlength="2" autocomplete="cc-exp-month">
+        <input class="InputText" type="tel" size="2" data-stripe="exp_month" name="ccexpm" id="ccm" maxlength="2" autocomplete="cc-exp-month">
       </div>
       <div class="FormItem mb2 mt3 Expiration">
         <label class="InputLabel">Exp. (YY)</label>
-        <input class="InputText" type="tel" size="2" data-stripe="exp_year" id="ccy" maxlength="2" autocomplete="cc-exp-year">
+        <input class="InputText" type="tel" size="2" data-stripe="exp_year" name="ccexpy" id="ccy" maxlength="2" autocomplete="cc-exp-year">
       </div>
       <div class="FormItem mb2 mt3 Expiration">
         <label class="InputLabel">Security Code</label>
-        <input class="InputText" type="tel" size="4" data-stripe="cvc" id="cvv" maxlength="4" autocomplete="cc-csc">
+        <input class="InputText" type="tel" size="4" data-stripe="cvc" id="cvv" name="ccsec" maxlength="4" autocomplete="cc-csc">
       </div>
       <button class="SubmitButton mt4">
         <div class="CompleteCheck"></div>

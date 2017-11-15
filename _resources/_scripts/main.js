@@ -76,11 +76,21 @@ $("#payment-form").submit(function(event) {
         required: true,
         digits: true
       },
-      recipient_name: {
-        required: true
+      ccdigits: {
+        required: true,
+        digits: true
       },
-      shipping_preference: {
-        required: true
+      ccexpm: {
+        required: true,
+        digits: true
+      },
+      ccexpy: {
+        required: true,
+        digits: true
+      },
+      ccsec: {
+        required: true,
+        digits: true
       },
       shipping_address_line1: {
         required: true
@@ -106,6 +116,18 @@ $("#payment-form").submit(function(event) {
       stripeEmail: {
         required: "We'll need your email address in case we have to contact you about your donation.",
         email: "Your email address must be in the format of name@domain.com"
+      },
+      ccdigits: {
+        required: "Please enter a valid card number"
+      },
+      ccexpm: {
+        required: "Please enter a valid two digit month"
+      },
+      ccexpy: {
+        required: "Please enter a valid two digit year"
+      },
+      ccsec: {
+        required: "Please enter a valid code, likely on the back of your card"
       },
       shipping_address_line1: {
         required: "Please enter a valid address."
