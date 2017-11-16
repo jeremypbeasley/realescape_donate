@@ -11,6 +11,7 @@ html {
 
 body, p {
 	font-size: 1rem;
+  line-height: 175%;
 }
 
 .unselectable {
@@ -23,4 +24,32 @@ a {
 	text-decoration: none;
 	color: color-text;
   border-bottom: 1px solid color-text;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  line-height: 125%;
+  padding: 0;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 9vw;
+}
+
+@media laptop {
+  h1 {
+    font-size: 7.5vw;
+  }
+}
+
+h2 {
+  font-family: typeface-secondary;
+  font-size: 8vw;
+}
+
+@media laptop {
+  h2 {
+    font-size: 4vw;
+  }
 }

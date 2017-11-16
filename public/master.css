@@ -1144,7 +1144,7 @@ a, a:focus, *:focus {
 
 html {
   font-size: 16px;
-  font-family: GaramondNo4TLig, serif, serif;
+  font-family: GaramondNo4TLig, Garamond, Georgia, serif, serif;
 }
 @media (min-width: 62em) {
   html {
@@ -1154,6 +1154,7 @@ html {
 body,
 p {
   font-size: 1rem;
+  line-height: 175%;
 }
 .unselectable {
   -moz-user-select: none;
@@ -1162,8 +1163,34 @@ p {
 }
 a {
   text-decoration: none;
-  color: #fff;
-  border-bottom: 1px solid #fff;
+  color: #000;
+  border-bottom: 1px solid #000;
+}
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  line-height: 125%;
+  padding: 0;
+  font-weight: normal;
+}
+h1 {
+  font-size: 9vw;
+}
+@media (min-width: 62em) {
+  h1 {
+    font-size: 7.5vw;
+  }
+}
+h2 {
+  font-family: CircularStdBook, Arial, sans-serif;
+  font-size: 8vw;
+}
+@media (min-width: 62em) {
+  h2 {
+    font-size: 4vw;
+  }
 }
 .col-md-1,
 .col-md-2,
@@ -1311,41 +1338,54 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   margin: 0;
-  background-color: #000;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
 }
 header {
-  width: 80px;
-  margin: 11vw 11vw 5.5vw 11vw;
+  padding: 11vw 11vw 0 11vw;
 }
-hr {
-  display: none;
+.logo {
+  width: 80px;
+}
+.FooterLine {
+  width: 100%;
+  height: 0px;
+  border-top: 1px solid #000;
+}
+form {
+  margin-top: 11vw;
+  max-width: 550px;
+}
+@media (min-width: 62em) {
+  form {
+    margin-top: calc(4.5vw * -1);
+  }
 }
 input {
-  color: #fff;
-  font-family: GaramondNo4TLig, serif;
+  color: #000;
+  font-family: GaramondNo4TLig, Garamond, Georgia, serif;
 }
 input:focus {
-  border-color: #fff;
-  color: #fff;
+  border-color: #000;
+  color: #000;
   outline: none;
 }
 :-webkit-autofill,
 :-webkit-autofill:hover,
 :-webkit-autofill:focus {
   border: 0;
-  -webkit-text-fill-color: #fff;
+  -webkit-text-fill-color: #000;
   -webkit-box-shadow: 0 0 0px 1000px transparent inset;
   transition: background-color 1000s ease-in-out 0s !important;
-  background: #000 !important;
-  background-color: #000 !important;
+  background: #fff !important;
+  background-color: #fff !important;
 }
-input.InputText {
+.InputText {
   width: 100%;
   font-size: 1rem;
   display: block;
   border: 0;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #000;
   border-radius: 0;
   padding: 15px 0 5px 0;
   background: transparent;
@@ -1360,31 +1400,21 @@ input.InputText {
   position: relative;
   width: 100%;
 }
-.FormItem label.InputLabel {
+.FormItem .InputLabel {
   position: absolute;
   top: 15px;
   left: 0px;
-  font-family: CircularStdBook, CircularStdBold, sans-serif;
-  color: #fff;
+  font-family: CircularStdBook, Arial, sans-serif;
+  color: #000;
   transition: 0.1s all linear;
   cursor: text;
   z-index: 10;
 }
-label.error {
-  position: relative;
-  font-family: CircularStdBook, CircularStdBold, sans-serif;
-  color: #ed5654;
-  top: 10px;
-  line-height: 120%;
-  margin-bottom: 15px;
-  display: block;
-}
 .FormItem.active input {
   padding-left: 0px;
 }
-.FormItem.active label {
-  top: -5px;
-  opacity: 0.7;
+.FormItem.active .InputLabel {
+  top: -10px;
 }
 .FormItem.Expiration {
   width: calc(50% - 10px);
@@ -1392,59 +1422,13 @@ label.error {
 .FormItem.Expiration.Month {
   margin-right: 15px;
 }
-input[type=radio]:checked ~ .check {
-  border: 10px solid #fff;
-}
-input[type=radio]:checked ~ .check::before {
-  background: #fff;
-}
-input[type=radio]:checked ~ label {
-  color: #fff;
-}
-.FormItem .StateLabel {
-  top: 10;
-  position: absolute;
-  opacity: 0;
-  font-size: 11px;
-  transition: all 200ms ease-out;
-}
-.FormItem .StateLabel.Active {
-  opacity: 0.5;
-  top: 0;
-}
-.StateSelector {
-  height: 45px;
-  display: block;
-}
-.StateSelector select {
-  width: 100%;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  padding: 0;
-  -webkit-appearance: none;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #ccc;
-  position: relative;
-  top: 20px;
-  outline: none;
-}
-.StateSelector select.Default {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  font-family: "ApercuMono", Andale Mono, monospaced;
-}
-.StateSelector select.Active {
-  opacity: 1;
-  height: auto;
-}
-.StateSelector label.error {
-  top: 30px;
-}
 .GiftAmount {
   position: relative;
+}
+@media (min-width: 62em) {
+  .GiftAmount {
+    margin-top: -23px;
+  }
 }
 .FormItem .GiftAmount label.InputLabel {
   top: -30px;
@@ -1467,7 +1451,7 @@ input[type=radio]:checked ~ label {
   width: 100%;
   display: block;
   border: 0;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #000;
   border-radius: 0;
   background-color: transparent;
   padding: 0 0 0 25px;
@@ -1479,6 +1463,15 @@ input[type=radio]:checked ~ label {
     padding-left: 45px;
     font-size: 72px;
   }
+}
+label.error {
+  position: relative;
+  font-family: CircularStdBook, Arial, sans-serif;
+  color: #ed5654;
+  top: 10px;
+  line-height: 120%;
+  margin-bottom: 15px;
+  display: block;
 }
 .FormErrorsCont {
   height: 0px;
@@ -1504,10 +1497,10 @@ input[type=radio]:checked ~ label {
   opacity: 1;
 }
 .SubmitButton {
-  font-family: CircularStdBook, CircularStdBold, sans-serif;
+  font-family: CircularStdBook, Arial, sans-serif;
   background: #fff;
   padding: 20px 50px;
-  border: none;
+  border: 1px solid #000;
   color: #000;
   display: block;
   text-align: center;
@@ -1515,14 +1508,16 @@ input[type=radio]:checked ~ label {
   position: relative;
   outline: none;
   font-size: 1rem;
-  transition: all 200ms ease-out;
+  transition: all 100ms ease-out;
   transform: scale(1);
   height: 60px;
   width: 215px;
+  -webkit-box-shadow: 5px 5px 0px 0px #000;
+  box-shadow: 5px 5px 0px 0px #000;
 }
 .SubmitButton:hover {
-  transform: scale(1.01);
-  box-shadow: 0 19px 38px rgba(0,0,0,0.1), 0 15px 12px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0px 0px 0px 0px #000, inset 5px 5px 0px 0px #000;
+  box-shadow: 0px 0px 0px 0px #000, inset 5px 5px 0px 0px #000;
 }
 .SubmitButton span {
   position: relative;
@@ -1536,10 +1531,12 @@ input[type=radio]:checked ~ label {
 .SubmitButton span.Loading {
   top: 60px;
   opacity: 0;
+  color: #fff;
 }
 .SubmitButton span.Complete {
   top: 60px;
   opacity: 0;
+  color: #fff;
 }
 .SubmitButton.Loading span.Purchase {
   top: -30px;
@@ -1558,11 +1555,11 @@ input[type=radio]:checked ~ label {
   top: 20px;
   opacity: 1;
 }
-.SubmitButton.Complete {
-  background: #86c716;
-}
+.SubmitButton.Complete,
 .SubmitButton.Loading {
-  background: #10b2e8;
+  background: #000;
+  -webkit-box-shadow: 0px 0px 0px 0px #000, inset 5px 5px 0px 0px #000;
+  box-shadow: 0px 0px 0px 0px #000, inset 5px 5px 0px 0px #000;
 }
 .CompleteCheck {
   height: 20px;
@@ -1604,7 +1601,7 @@ input[type=radio]:checked ~ label {
 .LoadingSpinner {
   animation-duration: 0.75s;
   animation-iteration-count: infinite;
-  animation-name: rotate-forever;
+  animation-name: RotateForever;
   animation-timing-function: linear;
   transition: all 200ms ease-out;
   height: 20px;
@@ -1614,7 +1611,7 @@ input[type=radio]:checked ~ label {
   border-radius: 50%;
   display: inline-block;
 }
-@-moz-keyframes rotate-forever {
+@-moz-keyframes RotateForever {
   0% {
     transform: rotate(0deg) scale(1);
   }
@@ -1622,7 +1619,7 @@ input[type=radio]:checked ~ label {
     transform: rotate(360deg) scale(1);
   }
 }
-@-webkit-keyframes rotate-forever {
+@-webkit-keyframes RotateForever {
   0% {
     transform: rotate(0deg) scale(1);
   }
@@ -1630,7 +1627,7 @@ input[type=radio]:checked ~ label {
     transform: rotate(360deg) scale(1);
   }
 }
-@-o-keyframes rotate-forever {
+@-o-keyframes RotateForever {
   0% {
     transform: rotate(0deg) scale(1);
   }
@@ -1638,7 +1635,7 @@ input[type=radio]:checked ~ label {
     transform: rotate(360deg) scale(1);
   }
 }
-@keyframes rotate-forever {
+@keyframes RotateForever {
   0% {
     transform: rotate(0deg) scale(1);
   }

@@ -1,58 +1,65 @@
 <% include header.ejs %>
 
-<div class="row">
-  <div class="column col-xs-12 col-md-5">
-    <form action="/thanks" method="POST" id="payment-form" name="payment-form">
-      <div class="FormErrorsCont">
-        <div class="FormErrors"></div>
-      </div>
-      <div class="FormItem">
-        <div class="GiftAmount">
-          <label class="InputLabel">Amount</label>
-          <input class="InputGiftAmount" type="tel" name="stripeAmount">
-          <input type="hidden" name="productId" value="prod_A06J6m2sZjfgXq">
+<section>
+  <div class="row">
+    <div class="column col-xs-12 col-md-6 mt6">
+      <h1 class="mb3">Give rest.</h1>
+      <p>Your money works hard at REST. We’re deeply committed to financial transparency, sound fiscal policies and practices, and thoughtful allocation of the generous resources entrusted to our care. In fact REST has been recognized by the Seattle Met Magazine as the <a href="http://www.seattlemet.com/articles/2013/10/25/light-a-fire-awards-2013" target="_blank">#1 nonprofit in Seattle</a> “Making the Most Out of the Least” amount of resources. </p>
+      <p>If you're interested in digging into our finances, check out our <a target="_blank" href="https://projects.propublica.org/nonprofits/organizations/453531020">public tax documents</a> since our 501c3 status in 2011.</p>
+    </div>
+    <div class="column col-xs-12 col-md-5 col-md-offset-1">
+      <form action="/thanks" method="POST" id="payment-form" name="payment-form">
+        <div class="FormErrorsCont">
+          <div class="FormErrors"></div>
         </div>
-      </div>
-      <div class="FormItem mb2 mt3">
-        <label class="InputLabel">Name</label>
-        <input class="InputText" type="text" data-stripe="name" name="customer_name" autocomplete="name">
-      </div>
-      <div class="FormItem mb2 mt3">
-        <label class="InputLabel">Email</label>
-        <input class="InputText" type="email" name="stripeEmail" autocomplete="email">
-      </div>
-      <div class="FormItem mb2 mt3">
-        <label class="InputLabel">Card Number</label>
-        <input class="InputText" type="tel" data-stripe="number" id="cc" name="ccdigits" maxlength="16" autocomplete="cc-number">
-      </div>
-      <div class="FormItem mb2 mt3 Expiration Month">
-        <label class="InputLabel">Exp. (MM)</label>
-        <input class="InputText" type="tel" size="2" data-stripe="exp_month" name="ccexpm" id="ccm" maxlength="2" autocomplete="cc-exp-month">
-      </div>
-      <div class="FormItem mb2 mt3 Expiration">
-        <label class="InputLabel">Exp. (YY)</label>
-        <input class="InputText" type="tel" size="2" data-stripe="exp_year" name="ccexpy" id="ccy" maxlength="2" autocomplete="cc-exp-year">
-      </div>
-      <div class="FormItem mb2 mt3 Expiration">
-        <label class="InputLabel">Security Code</label>
-        <input class="InputText" type="tel" size="4" data-stripe="cvc" id="cvv" name="ccsec" maxlength="4" autocomplete="cc-csc">
-      </div>
-      <button class="SubmitButton mt4">
-        <div class="CompleteCheck"></div>
-        <div class="LoadingSpinnerCont">
-          <div class="LoadingSpinner"></div>
+        <div class="FormItem">
+          <div class="GiftAmount">
+            <label class="InputLabel">Amount</label>
+            <input class="InputGiftAmount" type="tel" name="stripeAmount">
+            <input type="hidden" name="productId" value="prod_A06J6m2sZjfgXq">
+          </div>
         </div>
-        <span class="Purchase">Submit</span>
-        <span class="Loading">Loading</span>
-        <span class="Complete">Complete</span>
-      </button
-    </form>
-    <p class="mt4">
-      Proteccted with <a href="https://en.wikipedia.org/wiki/SSL" target="_blank">SSL</a>
-      and <a href="https://stripe.com/" target="_blank">Stripe</a>.
-    </p>
+        <div class="FormItem mb1 mt3">
+          <label class="InputLabel">Name</label>
+          <input class="InputText" type="text" data-stripe="name" name="customer_name" autocomplete="name">
+        </div>
+        <div class="FormItem mb1 mt3">
+          <label class="InputLabel">Email</label>
+          <input class="InputText" type="email" name="stripeEmail" autocomplete="email">
+        </div>
+        <div class="FormItem mb1 mt3">
+          <label class="InputLabel">Card Number</label>
+          <input class="InputText" type="tel" data-stripe="number" id="cc" name="ccdigits" maxlength="16" autocomplete="cc-number">
+        </div>
+        <div class="FormItem mb1 mt3 Expiration Month">
+          <label class="InputLabel">Exp. (MM)</label>
+          <input class="InputText" type="tel" size="2" data-stripe="exp_month" name="ccexpm" id="ccm" maxlength="2" autocomplete="cc-exp-month">
+        </div>
+        <div class="FormItem mb1 mt3 Expiration">
+          <label class="InputLabel">Exp. (YY)</label>
+          <input class="InputText" type="tel" size="2" data-stripe="exp_year" name="ccexpy" id="ccy" maxlength="2" autocomplete="cc-exp-year">
+        </div>
+        <div class="FormItem mb1 mt3 Expiration">
+          <label class="InputLabel">Security Code</label>
+          <input class="InputText" type="tel" size="4" data-stripe="cvc" id="cvv" name="ccsec" maxlength="4" autocomplete="cc-csc">
+        </div>
+        <button class="SubmitButton mt4">
+          <div class="CompleteCheck"></div>
+          <div class="LoadingSpinnerCont">
+            <div class="LoadingSpinner"></div>
+          </div>
+          <span class="Purchase">Submit</span>
+          <span class="Loading">Loading</span>
+          <span class="Complete">Complete</span>
+        </button>
+      </form>
+      <p class="mt4">
+        Protected with <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security" target="_blank">SSL</a>
+        and <a href="https://stripe.com/" target="_blank">Stripe</a>.
+      </p>
+    </div>
   </div>
-</div>
+</section>
 
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript" src="master.js"></script>

@@ -2,3 +2,5 @@ node_modules
 *.DS_Store
 .env
 .env.test
+public/master.css
+public/master.js
