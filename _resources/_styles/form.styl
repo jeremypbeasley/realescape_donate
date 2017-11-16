@@ -1,7 +1,3 @@
-hr {
-  display: none;
-}
-
 input {
   color: color-text;
   font-family: typeface-primary
@@ -24,15 +20,12 @@ input:focus {
   background-color: color-background !important;
 }
 
-
-
-
 input.InputText {
   width: 100%;
   font-size: 1rem;
   display: block;
   border: 0;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid color-text;
   border-radius: 0;
   padding: 15px 0 5px 0;
   background: transparent;
@@ -73,9 +66,8 @@ label.error {
   padding-left: 0px;
 }
 
-.FormItem.active label {
-  top: -5px;
-  opacity: .7;
+.FormItem.active label.InputLabel {
+  top: -10px;
 }
 .FormItem.Expiration {
   width: calc(50% - 10px);
@@ -83,7 +75,6 @@ label.error {
 .FormItem.Expiration.Month {
   margin-right: 15px;
 }
-
 
 input[type=radio]:checked ~ .check {
   border: 10px solid color-text;
@@ -118,7 +109,7 @@ input[type=radio]:checked ~ label{
   -webkit-appearance:none;
   padding-top: 5px;
   padding-bottom: 5px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid color-text;
   position: relative;
   top: 20px;
   outline: none;
@@ -166,7 +157,7 @@ input[type=radio]:checked ~ label{
   width: 100%;
   display: block;
   border: 0;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid color-text;
   border-radius: 0;
   background-color: transparent;
   padding: 0 0 0 25px;
@@ -212,25 +203,26 @@ input[type=radio]:checked ~ label{
 
 .SubmitButton {
   font-family: typeface-secondary
-  background: color-text;
+  background: color-background;
   padding: 20px 50px;
-  border: none;
-  color: color-background;
+  border: 1px solid color-text;
+  color: color-text;
   display: block;
   text-align: center;
   cursor: pointer
-  // border-radius: 1000px;
   position: relative;
   outline: none;
   font-size: 1rem;
-  transition: all 200ms ease-out;
+  transition: all 100ms ease-out;
   transform: scale(1);
   height: 60px;
   width: 215px;
+  -webkit-box-shadow: 5px 5px 0px 0px color-text;
+  box-shadow: 5px 5px 0px 0px color-text;
 }
 .SubmitButton:hover {
-  transform: scale(1.01);
-  box-shadow: 0 19px 38px rgba(0,0,0,0.1), 0 15px 12px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0px 0px 0px 0px color-text, inset 5px 5px 0px 0px rgba(0,0,0,1);
+  box-shadow: 0px 0px 0px 0px color-text, inset 5px 5px 0px 0px rgba(0,0,0,1);
 }
 .SubmitButton span {
   position: relative;
@@ -244,10 +236,12 @@ input[type=radio]:checked ~ label{
 .SubmitButton span.Loading {
   top: 60px;
   opacity: 0;
+  color: color-background
 }
 .SubmitButton span.Complete {
   top: 60px;
   opacity: 0;
+  color: color-background
 }
 .SubmitButton.Loading span.Purchase {
   top: -30px;
@@ -265,11 +259,10 @@ input[type=radio]:checked ~ label{
   top: 20px;
   opacity: 1;
 }
-.SubmitButton.Complete {
-  background: #86c716;
-}
-.SubmitButton.Loading{
-  background: #10b2e8;
+.SubmitButton.Complete, .SubmitButton.Loading {
+  background: color-text;
+  -webkit-box-shadow: 0px 0px 0px 0px color-text, inset 5px 5px 0px 0px rgba(0,0,0,1);
+  box-shadow: 0px 0px 0px 0px color-text, inset 5px 5px 0px 0px rgba(0,0,0,1);
 }
 .CompleteCheck {
   height: 20px;

@@ -18,24 +18,27 @@ body {
   color: color-text;
 }
 
+header {
+  padding: 11vw 11vw 0 11vw;
+}
+
 .logo {
   width: 80px;
-  padding-bottom: 11vw;
 }
 
-section.FormContainer {
-  padding: 11vw;
-  background: color-background;
-  width: 50vw;
-  float: left;
-  min-height: 100vh;
+form {
+  margin-top: 11vw;
+  max-width: 550px;
 }
 
-section.OrgInfo {
-  padding: 11vw;
-  background: color-text;
-  color: color-background;
-  width: 50vw;
-  float: left;
-  min-height: 100vh;
+@media laptop {
+  form {
+    margin-top: calc(4.5vw * -1)
+  }
+}
+
+.FooterLine {
+  width: 100%;
+  height: 0px;
+  border-top: 1px solid color-text;
 }
