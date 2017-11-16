@@ -1,4 +1,6 @@
-// ADDS MARGIN BELOW COLUMNS THAT ARE FORCED TO FULL WIDTH ON MOBILE
+// Adds margin below columns that are forced to full width on mobile
+
+// TODO: Replace stylus syntax with valid CSS
 
 .col-md-1,
 .col-md-2,
@@ -45,12 +47,12 @@
 .col-md-offset-12
 	padding-right: 2vw;
 	padding-left: 2vw;
-	
+
 .row
 	padding 4.5vw 9vw
 	overflow visible
 	z-index 10
-	margin-left 0px 
+	margin-left 0px
 	margin-right 0px
 	div
 		z-index 11
@@ -61,13 +63,12 @@
 	&.heading
 		padding-top 30vw
 		padding-bottom 11vw
-		// background-image url(http://f.cl.ly/items/070v422R342X1N3K0a3e/rest_bw-18234.jpg)
 		background-repeat no-repeat
 		background-size cover
 		@media laptop
 			padding-top 19vw
-			background-image none  
-			overflow visible 
+			background-image none
+			overflow visible
 			padding-bottom 0vw
 			// margin-bottom -5vw
 	&.noHeading
@@ -77,24 +78,20 @@
 			padding-top 18vw
 	&.followup
 		padding-top 0vw
-		@media laptop	
+		@media laptop
 			padding-top 10vw
-	&.short 
-		padding-bottom 2vw 
-	&.double 
+	&.short
+		padding-bottom 2vw
+	&.double
 		padding 11vw 9vw
 	&.noTop
 		@media laptop
 			padding-top 0px !important
-		
+
 .column
 	overflow-y visible
 	margin-bottom 11vw
-	// &:last-of-type
-	// 	margin-bottom 0px
 	@media laptop
 		margin-bottom 0px
 	.row
 		padding 0 !important
-	
-    

@@ -1581,23 +1581,23 @@ $( document ).ready(function() {
 
   // Auto-population (Only used for testing)
 
-  $('[name="customer_name"]').val("John Smith");
-  $('[name="from_name"]').val("John Smith");
-  $('[name="customer_phone"]').val("2064567890");
-  $('[name="recipient_name"]').val("Jane Doe");
-  $('[name="recipient_message"]').val("Just for being great and all.");
-  $('#ShipToPickup').prop("checked", true);
-  $('[name="shipping_address_line1"]').val("171 Lake Washington Blvd E");
-  $('[name="shipping_address_line2"]').val("");
-  $('[name="shipping_address_city"]').val("Seattle");
-  $('[name="shipping_address_country"]').val("United States");
-  $('[name="shipping_address_postal_code"]').val("98112");
-  $('[name="stripeEmail"]').val("jeremy@bsley.com");
-  $('#cc').val("4242424242424242");
-  $('#ccm').val("12");
-  $('#ccy').val("19");
-  $('#cvv').val("123");
-  $('.FormItem').addClass("active");
+  // $('[name="customer_name"]').val("John Smith");
+  // $('[name="from_name"]').val("John Smith");
+  // $('[name="customer_phone"]').val("2064567890");
+  // $('[name="recipient_name"]').val("Jane Doe");
+  // $('[name="recipient_message"]').val("Just for being great and all.");
+  // $('#ShipToPickup').prop("checked", true);
+  // $('[name="shipping_address_line1"]').val("171 Lake Washington Blvd E");
+  // $('[name="shipping_address_line2"]').val("");
+  // $('[name="shipping_address_city"]').val("Seattle");
+  // $('[name="shipping_address_country"]').val("United States");
+  // $('[name="shipping_address_postal_code"]').val("98112");
+  // $('[name="stripeEmail"]').val("jeremy@bsley.com");
+  // $('#cc').val("4242424242424242");
+  // $('#ccm').val("12");
+  // $('#ccy').val("19");
+  // $('#cvv').val("123");
+  // $('.FormItem').addClass("active");
   $('.InputGiftAmount').val("100");
 
   // Animated input fields
@@ -1694,19 +1694,19 @@ $("#payment-form").submit(function(event) {
       },
       stripeEmail: {
         required: "We'll need your email address in case we have to contact you about your donation.",
-        email: "Your email address must be in the format of name@domain.com"
+        email: "Your email address must be in the format of name@domain.com."
       },
       ccdigits: {
-        required: "Please enter a valid card number"
+        required: "Please enter a valid card number."
       },
       ccexpm: {
-        required: "Please enter a valid two digit month"
+        required: "Please enter a valid two digit month."
       },
       ccexpy: {
-        required: "Please enter a valid two digit year"
+        required: "Please enter a valid two digit year."
       },
       ccsec: {
-        required: "Please enter a valid code, likely on the back of your card"
+        required: "Please enter a valid code, likely on the back of your card."
       },
       shipping_address_line1: {
         required: "Please enter a valid address."

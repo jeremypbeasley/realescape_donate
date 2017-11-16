@@ -1187,6 +1187,11 @@ h2 {
   font-family: CircularStdBook, CircularStdBold, sans-serif;
   font-size: 8vw;
 }
+@media (min-width: 62em) {
+  h2 {
+    font-size: 4vw;
+  }
+}
 .col-md-1,
 .col-md-2,
 .col-md-3,
@@ -1342,6 +1347,11 @@ header {
 .logo {
   width: 80px;
 }
+.FooterLine {
+  width: 100%;
+  height: 0px;
+  border-top: 1px solid #000;
+}
 form {
   margin-top: 11vw;
   max-width: 550px;
@@ -1350,11 +1360,6 @@ form {
   form {
     margin-top: calc(4.5vw * -1);
   }
-}
-.FooterLine {
-  width: 100%;
-  height: 0px;
-  border-top: 1px solid #000;
 }
 input {
   color: #000;
@@ -1375,7 +1380,7 @@ input:focus {
   background: #fff !important;
   background-color: #fff !important;
 }
-input.InputText {
+.InputText {
   width: 100%;
   font-size: 1rem;
   display: block;
@@ -1395,7 +1400,7 @@ input.InputText {
   position: relative;
   width: 100%;
 }
-.FormItem label.InputLabel {
+.FormItem .InputLabel {
   position: absolute;
   top: 15px;
   left: 0px;
@@ -1405,19 +1410,10 @@ input.InputText {
   cursor: text;
   z-index: 10;
 }
-label.error {
-  position: relative;
-  font-family: CircularStdBook, CircularStdBold, sans-serif;
-  color: #ed5654;
-  top: 10px;
-  line-height: 120%;
-  margin-bottom: 15px;
-  display: block;
-}
 .FormItem.active input {
   padding-left: 0px;
 }
-.FormItem.active label.InputLabel {
+.FormItem.active .InputLabel {
   top: -10px;
 }
 .FormItem.Expiration {
@@ -1426,59 +1422,13 @@ label.error {
 .FormItem.Expiration.Month {
   margin-right: 15px;
 }
-input[type=radio]:checked ~ .check {
-  border: 10px solid #000;
-}
-input[type=radio]:checked ~ .check::before {
-  background: #000;
-}
-input[type=radio]:checked ~ label {
-  color: #000;
-}
-.FormItem .StateLabel {
-  top: 10;
-  position: absolute;
-  opacity: 0;
-  font-size: 11px;
-  transition: all 200ms ease-out;
-}
-.FormItem .StateLabel.Active {
-  opacity: 0.5;
-  top: 0;
-}
-.StateSelector {
-  height: 45px;
-  display: block;
-}
-.StateSelector select {
-  width: 100%;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  padding: 0;
-  -webkit-appearance: none;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #000;
-  position: relative;
-  top: 20px;
-  outline: none;
-}
-.StateSelector select.Default {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  font-family: "ApercuMono", Andale Mono, monospaced;
-}
-.StateSelector select.Active {
-  opacity: 1;
-  height: auto;
-}
-.StateSelector label.error {
-  top: 30px;
-}
 .GiftAmount {
   position: relative;
+}
+@media (min-width: 62em) {
+  .GiftAmount {
+    margin-top: -23px;
+  }
 }
 .FormItem .GiftAmount label.InputLabel {
   top: -30px;
@@ -1513,6 +1463,15 @@ input[type=radio]:checked ~ label {
     padding-left: 45px;
     font-size: 72px;
   }
+}
+label.error {
+  position: relative;
+  font-family: CircularStdBook, CircularStdBold, sans-serif;
+  color: #ed5654;
+  top: 10px;
+  line-height: 120%;
+  margin-bottom: 15px;
+  display: block;
 }
 .FormErrorsCont {
   height: 0px;
@@ -1642,7 +1601,7 @@ input[type=radio]:checked ~ label {
 .LoadingSpinner {
   animation-duration: 0.75s;
   animation-iteration-count: infinite;
-  animation-name: rotate-forever;
+  animation-name: RotateForever;
   animation-timing-function: linear;
   transition: all 200ms ease-out;
   height: 20px;
@@ -1652,7 +1611,7 @@ input[type=radio]:checked ~ label {
   border-radius: 50%;
   display: inline-block;
 }
-@-moz-keyframes rotate-forever {
+@-moz-keyframes RotateForever {
   0% {
     transform: rotate(0deg) scale(1);
   }
@@ -1660,7 +1619,7 @@ input[type=radio]:checked ~ label {
     transform: rotate(360deg) scale(1);
   }
 }
-@-webkit-keyframes rotate-forever {
+@-webkit-keyframes RotateForever {
   0% {
     transform: rotate(0deg) scale(1);
   }
@@ -1668,7 +1627,7 @@ input[type=radio]:checked ~ label {
     transform: rotate(360deg) scale(1);
   }
 }
-@-o-keyframes rotate-forever {
+@-o-keyframes RotateForever {
   0% {
     transform: rotate(0deg) scale(1);
   }
@@ -1676,7 +1635,7 @@ input[type=radio]:checked ~ label {
     transform: rotate(360deg) scale(1);
   }
 }
-@keyframes rotate-forever {
+@keyframes RotateForever {
   0% {
     transform: rotate(0deg) scale(1);
   }
