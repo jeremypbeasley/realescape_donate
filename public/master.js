@@ -1581,13 +1581,16 @@ $( document ).ready(function() {
 
   // Auto-population (Only used for testing)
 
-  $('[name="customer_name"]').val("John Smith");
-  $('[name="stripeEmail"]').val("jeremy@bsley.com");
-  $('#cc').val("4242424242424242");
-  $('#ccm').val("12");
-  $('#ccy').val("19");
-  $('#cvv').val("123");
-  $('.FormItem').addClass("active");
+  // $('[name="customer_name"]').val("John Smith");
+  // $('[name="stripeEmail"]').val("jeremy@bsley.com");
+  // $('#cc').val("4242424242424242");
+  // $('#ccm').val("12");
+  // $('#ccy').val("19");
+  // $('#cvv').val("123");
+  // $('.FormItem').addClass("active");
+
+  // Load page with suggested donation
+
   $('.InputGiftAmount').val("100");
 
   // Animated input fields
@@ -1621,7 +1624,6 @@ $( document ).ready(function() {
   });
 
 });
-
 
 // Form validation & error messages
 
